@@ -1,17 +1,21 @@
 class AddReference < ActiveRecord::Migration[5.0]
   def change
-  	#likes, stories, votes, sentences belongs to users
-  	add_reference :likes, :user
-  	add_reference :stories, :user
-  	add_reference :votes, :user
-  	add_reference :sentences, :user
+  	#story
+    add_reference :stories, :user
 
-  	#likes, segments belongs to stories
-  	add_reference :likes, :story
-  	add_reference :segments, :story
+    #likes
+    add_reference :likes, :story
+    add_reference :likes, :user
 
-  	#segments, votes belongs to sentences
-  	add_reference :sentences, :segment
-  	add_reference :sentences, :vote
+    #sentence
+    add_reference :sentences, :segment
+    add_reference :sentences, :user
+
+    #segment
+    add_reference :segments, :story
+    
+    #votes
+    add_reference :votes, :sentence
+    add_reference :votes, :user
   end
 end

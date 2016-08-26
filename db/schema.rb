@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160826160545) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
     t.integer  "story_id"
+    t.integer  "user_id"
     t.index ["story_id"], name: "index_likes_on_story_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
@@ -33,14 +33,13 @@ ActiveRecord::Schema.define(version: 20160826160545) do
   end
 
   create_table "sentences", force: :cascade do |t|
+    t.string   "sentence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
     t.integer  "segment_id"
-    t.integer  "vote_id"
+    t.integer  "user_id"
     t.index ["segment_id"], name: "index_sentences_on_segment_id", using: :btree
     t.index ["user_id"], name: "index_sentences_on_user_id", using: :btree
-    t.index ["vote_id"], name: "index_sentences_on_vote_id", using: :btree
   end
 
   create_table "stories", force: :cascade do |t|
@@ -70,9 +69,11 @@ ActiveRecord::Schema.define(version: 20160826160545) do
 
   create_table "votes", force: :cascade do |t|
     t.integer  "vote_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "sentence_id"
     t.integer  "user_id"
+    t.index ["sentence_id"], name: "index_votes_on_sentence_id", using: :btree
     t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
   end
 
