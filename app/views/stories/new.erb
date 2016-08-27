@@ -1,0 +1,26 @@
+<%= @story.inspect %>
+<div class="title_container">
+	<%= form_for @story do |f| %>
+		<div>
+			<%= f.label :title %>		
+		</div>
+		<div>
+			<%= f.text_field :title, placeholder: "Enter..." %>	
+		</div>
+	<%= f.submit "Submit" %>
+</div>
+
+<div class="image_container">
+	figure out how to do a form get request on new image and save the image url as a string 
+</div>
+
+<div class="first_sentence_container">
+	<%= form_for @sentence do |f| %>
+		<div>
+			<%= f.label :sentence %>		
+		</div>
+		<div>
+			<%= f.text_field :sentence, placeholder: "Write here..." %>
+		</div>
+	<%= f.submit "Submit" %>
+</div>

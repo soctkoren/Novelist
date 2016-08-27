@@ -1,0 +1,7 @@
+<% @stories.each do |story| %>
+	<h1><%= story.segments.each do |segment| %></h1>
+	<%= segment.inspect %>
+	<p>break</p>
+	<%= story.inspect %>
+	<% end %>
+<% end %>
