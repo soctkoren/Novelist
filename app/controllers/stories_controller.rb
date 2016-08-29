@@ -9,6 +9,10 @@ class StoriesController < ApplicationController
 
 	def new
 		@story = Story.new
+		@segment = Segment.new
+		@sentence = Sentence.new
+
+
 	end
 
 	def edit
@@ -16,6 +20,9 @@ class StoriesController < ApplicationController
 
 	def create
 		@story = Story.create(story_params)
+		segment = Segment.create(story_id: @story.id)
+		sentence = Sentence.create(sentence: story_params[:sentence], segment_id: segment.id)
+		vote = Vote.create(vote_count: 1, user_id: story_params[:user_id], sentence_id: sentence.id)
 
 	 	respond_to do |format|
 	    if @story.save
@@ -51,7 +58,7 @@ class StoriesController < ApplicationController
 	private
 
 		def story_params
-			params.require(:story).permit(:title, :image_url, :user_id)
+			params.require(:story).permit(:title, :image_url, :user_id, :sentence)
 		end
 
 end

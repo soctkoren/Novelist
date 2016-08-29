@@ -4,10 +4,11 @@ class Story < ApplicationRecord
 	
 	belongs_to :user
 
+	attr_accessor :sentence
+
 	def segment_ended?
 		#TODO double check if this works
 		Time.now - self.created_at 
-	
 	end
 
 end

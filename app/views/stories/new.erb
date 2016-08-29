@@ -13,10 +13,11 @@
 		</div>
 
 		<div class="segment_container">
-			<p>do ajax call to create segement and a new sentence.</p>	
+			<%= f.label :sentence %>
+			<%= f.text_field :sentence %>
 		</div>
 		<p>session id will set this</p>
-		<%= f.text_field :user_id %>
+		<%= f.text_field :user_id, value:current_user.id %>
 		
 		<%= f.submit "Submit" %>
 	<% end %>
