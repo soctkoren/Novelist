@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
 	end
 
 	def create
-		@story = Story.new(story_params)
+		@story = Story.create(story_params)
 
 	 	respond_to do |format|
 	    if @story.save
@@ -47,6 +47,12 @@ class StoriesController < ApplicationController
       format.json { head :no_content }
     end
 	end
+
+	private
+
+		def story_params
+			params.require(:story).permit(:title, :image_url, :user_id)
+		end
 
 end
 
