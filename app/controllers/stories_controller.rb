@@ -19,7 +19,7 @@ class StoriesController < ApplicationController
 			@contributors << seg.sentence.user
 		end
 
-
+		
 	end
 
 	def new

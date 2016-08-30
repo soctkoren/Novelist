@@ -1,9 +1,22 @@
 <% @stories.each do |story| %>
-	<h1><%= story.segments.each do |segment| %></h1>
-	<%= segment.inspect %>
-	<p>break</p>
-	<%= story.inspect %>
-	<% end %>
+	<!-- one story box -->
+	<div class="story_container">
+		<div class="image_container">
+			<div class="segment_container">
+			</div>
+			<div class="description_container">
+				<div class="first_sentence_container">
+				</div>
+				<div class="notes_container">
+					<div class="next_update">
+						
+					</div>
+					<div class="contribute_hearts">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<%= session.inspect %>
 <% end %>
