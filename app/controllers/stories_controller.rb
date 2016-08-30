@@ -40,7 +40,7 @@ class StoriesController < ApplicationController
 		segment = Segment.create(story_id: @story.id, winning_sentence: true)
 		@first_sentence = story_params[:sentence]
 		sentence = Sentence.create(segment_id: segment.id, user_id: story_params[:user_id], sentence: @first_sentence)
-		vote = Vote.create(vote_count: 1, user_id: story_params[:user_id], sentence_id: sentence.id)
+		# vote = Vote.create(vote_count: 1, user_id: story_params[:user_id], sentence_id: sentence.id)
 
 	 	respond_to do |format|
 	    if @story.save

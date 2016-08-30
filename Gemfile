@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # devise
 gem 'devise'
+# actas votable
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

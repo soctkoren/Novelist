@@ -3,8 +3,7 @@ class SegmentsController < ApplicationController
 	def create
 		@segment = Segment.create(segment_params)
 		sentence = Sentence.create(segment_id: @segment.id, user_id: current_user.id, sentence: segment_params[:sen])
-		vote = Vote.create(vote_count: 1, user_id: current_user.id, sentence_id: sentence.id)
-		puts 'herhehre'
+		# vote = Vote.create(vote_count: 1, user_id: current_user.id, sentence_id: sentence.id)
 		
 		redirect_to :back	
 	end

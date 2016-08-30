@@ -15,7 +15,7 @@ class AddReference < ActiveRecord::Migration[5.0]
     add_reference :segments, :story
     
     #votes
-    add_reference :votes, :sentence
-    add_reference :votes, :user
+    # add_reference :votes, :sentence
+    # add_reference :votes, :user
   end
 end
