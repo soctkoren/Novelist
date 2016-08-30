@@ -1,8 +1,10 @@
 class SentencesController < ApplicationController
 
 	def create
+		puts "woah a sentence"
 		@sentence = Sentence.create()
-
+		redirect '/'
+		puts "segment created"
 		respond_to do |format|
 			format.js
 			format.html

@@ -5,14 +5,31 @@ class StoriesController < ApplicationController
 
 	def show
 		@story = Story.find(params[:id])
+
+		if user_signed_in?
+			@new_segment = Segment.new
+			@new_sentence = Sentence.new
+		end
+		@segs = @story.segments
+		@win_seg = @segs.where(winning_sentence: true)
+		
+		#TODO refactor into the model when you have time
+		@contributors = []
+		@win_seg.each do |seg|
+			@contributors << seg.sentence.user
+		end
+
+
 	end
 
 	def new
-		@story = Story.new
-		@segment = Segment.new
-		@sentence = Sentence.new
-
-
+		if user_signed_in?
+			@story = Story.new
+			@segment = Segment.new
+			@sentence = Sentence.new
+		else
+			redirect_to '/users/sign_in'
+		end
 	end
 
 	def edit
@@ -20,8 +37,9 @@ class StoriesController < ApplicationController
 
 	def create
 		@story = Story.create(story_params)
-		segment = Segment.create(story_id: @story.id)
-		sentence = Sentence.create(sentence: story_params[:sentence], segment_id: segment.id)
+		segment = Segment.create(story_id: @story.id, winning_sentence: true)
+		@first_sentence = story_params[:sentence]
+		sentence = Sentence.create(segment_id: segment.id, user_id: story_params[:user_id], sentence: @first_sentence)
 		vote = Vote.create(vote_count: 1, user_id: story_params[:user_id], sentence_id: sentence.id)
 
 	 	respond_to do |format|

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root 'stories#index'
 
   resources :stories
+  resources :segments
+  resources :sentences
 end
 
