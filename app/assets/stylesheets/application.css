@@ -19,6 +19,7 @@ body {
 	margin-top: 0;
 	margin-left: 0;
 	margin-right: 0;
+	font-family: 'Quicksand', sans-serif;
 }
 
 .navigation-container {
@@ -27,4 +28,57 @@ body {
 	padding: 0;
 	background-color: white;
 	height: 100px;
+}
+
+.nav-img {
+	float: left;
+}
+
+.nav-list {
+	height: 100%;
+	margin-right: 30px;
+	float:right;
+}
+
+.nav-list ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.nav-list li {
+	float: right;
+}
+
+.nav-list li a {
+	display: block;
+	color: #000026;
+	font-size: 1.3em;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 30px 16px;
+}
+
+#serach {
+	font-size: 40px;
+}
+
+#user {
+	font-size: 40px;
+}
+
+#new-story {
+	margin-top: 5px;
+}
+
+#log-off {
+	margin-top: 5px;
+}
+
+#home img {
+	margin-top: 18px;
+	padding-left: 40px;
+	max-height: 60px
 }

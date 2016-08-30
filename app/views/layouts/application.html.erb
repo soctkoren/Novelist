@@ -6,15 +6,35 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Quicksand','application.css' %>
+     <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons','application.css' %>
   </head>
 
   <body>
     <div class="navigation-container">
-        <div>
-          
+        <div class="nav-img">
+          <%= link_to image_tag('novelist.png'), stories_path, id: "home"%>
         </div>
-        <div>
-          link to story new here
+        <div class="nav-list">
+        <ul>
+          <li>
+            <%= link_to "search", new_story_path, class:"material-icons", id: "serach" %>
+          </li>
+          
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Log off", destroy_user_session_path, 'data-method' => :delete, id:"log-off" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "person", new_user_session_path, class:"material-icons", id:"user" %>
+            </li>
+          <% end %>
+
+          <li>
+            <%= link_to "New Story", new_story_path, id:"new-story" %>
+          </li>
+        </ul>
         </div>
     </div>
   	<!-- devise flash notices -->
