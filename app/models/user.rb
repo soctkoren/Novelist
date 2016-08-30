@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_many :likes
+	# has_many :likes
 	has_many :stories
 	# has_many :votes
 	has_many :sentences

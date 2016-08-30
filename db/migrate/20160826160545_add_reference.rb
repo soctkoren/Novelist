@@ -4,8 +4,8 @@ class AddReference < ActiveRecord::Migration[5.0]
     add_reference :stories, :user
 
     #likes
-    add_reference :likes, :story
-    add_reference :likes, :user
+    # add_reference :likes, :story
+    # add_reference :likes, :user
 
     #sentence
     add_reference :sentences, :segment
