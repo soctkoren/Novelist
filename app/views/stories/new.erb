@@ -1,25 +1,25 @@
 <%= @story.inspect %>
-
-<div class="form_container">
+	
 	<%= form_for @story do |f| %>
-		<div>
-			<%= f.label :title %>		
-			<%= f.text_field :title, placeholder: "Enter..." %>	
-		</div>
+		<!-- one story box -->
+		<div class="story_container">
+			<div class="image_container">
+				<div class="title_container">
+					<%= f.label :title %>		
+			<%= f.text_field :title, placeholder: "Enter..." %>
 
-		<div class="image_container">
-			<%= f.label :image_url %>
-			<%= f.text_field :image_url %>	
-		</div>
-
-		<div class="segment_container">
-			<%= f.label :sentence %>
+				<%= f.label :image_url %>
+			<%= f.text_field :image_url %>
+				</div>
+			</div>
+			<div class="description_container">
+				<div class="first_sentence_container">
+					<%= f.label :sentence %>
 			<%= f.text_field :sentence %>
+				</div>
+			</div>
 		</div>
-		<p>session id will set this</p>
 		<%= f.text_field :user_id, value:current_user.id %>
-		
 		<%= f.submit "Submit" %>
 	<% end %>
-</div>
-
+	
