@@ -17,8 +17,6 @@ class StoriesController < ApplicationController
 		@win_seg.each do |seg|
 			@contributors << seg.sentence.user
 		end
-
-		
 	end
 
 	def new
@@ -29,8 +27,6 @@ class StoriesController < ApplicationController
 			@segment = Segment.new
 			@sentence = Sentence.new
 			# Need to ajax this to be a dynamic search
-			# @photos = Unsplash::Photo.search("dogs")
-			# @photo = ["a"]
 		else
 			redirect_to '/users/sign_in'
 		end
@@ -40,7 +36,7 @@ class StoriesController < ApplicationController
 	end
 
 	def create
-		puts Unsplash::Photo.find("tAKXap853rY").methods
+		# puts Unsplash::Photo.find("tAKXap853rY").methods
 		@story = Story.create(story_params)
 		segment = Segment.create(story_id: @story.id, winning_sentence: true)
 		@first_sentence = story_params[:sentence]
@@ -76,6 +72,18 @@ class StoriesController < ApplicationController
       format.html { redirect_to Storys_url, notice: 'Story was successfully destroyed.' }
       format.json { head :no_content }
     end
+	end
+
+
+	def images
+		if request.xhr?
+			puts "hey"
+			@photos = Unsplash::Photo.search("dogs")
+			@photos[0].to_json
+			render json: @photos
+		else
+			new_story_path
+		end
 	end
 
 	private

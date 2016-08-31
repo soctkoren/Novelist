@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   root 'stories#index'
 
-  resources :stories
+  resources :stories do 
+  	get "images"
+  end
+  
   resources :segments
   resources :sentences
 end
