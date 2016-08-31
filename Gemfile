@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 # actas votable
 gem 'acts_as_votable', '~> 0.10.0'
+# unsplash
+gem 'unsplash'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

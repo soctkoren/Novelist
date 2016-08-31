@@ -5,7 +5,6 @@ class StoriesController < ApplicationController
 
 	def show
 		@story = Story.find(params[:id])
-
 		if user_signed_in?
 			@new_segment = Segment.new
 			@new_sentence = Sentence.new
@@ -24,9 +23,14 @@ class StoriesController < ApplicationController
 
 	def new
 		if user_signed_in?
+
+			@root_url = "https://source.unsplash.com/"
 			@story = Story.new
 			@segment = Segment.new
 			@sentence = Sentence.new
+			# Need to ajax this to be a dynamic search
+			# @photos = Unsplash::Photo.search("dogs")
+			# @photo = ["a"]
 		else
 			redirect_to '/users/sign_in'
 		end
@@ -36,6 +40,7 @@ class StoriesController < ApplicationController
 	end
 
 	def create
+		puts Unsplash::Photo.find("tAKXap853rY").methods
 		@story = Story.create(story_params)
 		segment = Segment.create(story_id: @story.id, winning_sentence: true)
 		@first_sentence = story_params[:sentence]
