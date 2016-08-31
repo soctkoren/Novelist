@@ -4,9 +4,9 @@ $( document ).ready(function() {
   });
 
   $("#img_icon").on("click", function(event){
+    event.preventDefault();
     $("#pop-up-container").removeClass("hidden");
     $("#img_icon").addClass("hidden");
-    console.log("whattt?");
   });
 
   $("#pop-up").on("submit", function(event){
@@ -42,12 +42,16 @@ $( document ).ready(function() {
   });
 
   $(".story_form").on("submit", function(event){
-    event.preventDefault();
+    // event.preventDefault();
   });
 
   $(".submits").on("click", function(){
-      console.log("hmmmmmmm");
     $(".story_form").submit();
   });
-   
+
+  $("#cancel").on("click", function(event) {
+    event.preventDefault();
+    window.location.replace('/');
+  }); 
+
 });

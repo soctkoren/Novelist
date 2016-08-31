@@ -54,7 +54,7 @@ body {
 .nav-list li a {
 	display: block;
 	color: #000026;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	text-align: center;
 	text-decoration: none;
 	font-weight: bold;
@@ -71,6 +71,7 @@ body {
 
 #new-story {
 	margin-top: 5px;
+	
 }
 
 #log-off {

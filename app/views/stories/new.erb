@@ -6,20 +6,20 @@
 				<div class="title_container">
 				<%= f.text_field :title, placeholder: "Enter Title", :autocomplete => 'off'%>
 				</div>
-				<p class="material-icons" id="img_icon">add_a_photo</p>
-				<br>
+				<div id="icon-div">
+					<button class="material-icons" id="img_icon">add_a_photo</button>	
+				</div>
 				<%= f.hidden_field :image_url %>
 				</div>
 					<div class="description_container">
 						<div class="first_sentence_container">
-						<%= f.label :sentence %>
-						<%= f.text_field :sentence %>
+						<%= f.text_field :sentence, placeholder:"Write your first sentence here...", :autocomplete => 'off'%>
 					</div>
 				</div>
 			</div>
-		
 		</div>
-		<%= f.text_field :user_id, value:current_user.id %>
+		<button id="cancel">Cancel</button>
+		<%= f.hidden_field :user_id, value:current_user.id %>
 		<%= f.submit "Submit", :class => 'submits'%>
 	<% end %>
 
