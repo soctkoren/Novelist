@@ -1,22 +1,14 @@
 	<%= form_for @story, :html => {:class => "story_form"} do |f| %>
 		<!-- one story box -->
 		<div class="story_container">
-			<div class="image_container">
+			<div class="image_container" id="cat_images">
 
 				<div class="title_container">
 				<%= f.text_field :title, placeholder: "Enter Title", :autocomplete => 'off'%>
 				</div>
-				<%# %>
-				<%#<div class="image_pop_up_container hidden"> %>
-				<%#	<% @photos.each do |photo| %>
-				<%#		<div class="images_divs"> %>
-					<%#		<%= image_tag "#{@root_url}#{photo.id}" %>
-				<%#		</div> %>
-					<%# <% end %> 
-				<%#</div> %>
 				<p class="material-icons" id="img_icon">add_a_photo</p>
 				<br>
-				<%= f.text_field :image_url %>
+				<%= f.hidden_field :image_url %>
 				</div>
 					<div class="description_container">
 						<div class="first_sentence_container">
@@ -28,13 +20,21 @@
 		
 		</div>
 		<%= f.text_field :user_id, value:current_user.id %>
-		<%= f.submit "Submit" %>
+		<%= f.submit "Submit", :class => 'submits'%>
 	<% end %>
 
-<div id="pop-up-container">
+<div id="pop-up-container" class="hidden">
+	<div>
+		<h1>search image category</h2>
+	</div>
 	<form id="pop-up">
-		<input type="text" name="search" id="pop-search">
+		<input type="text" name="search" id="pop-search" autocomplete="off">
 	</form>
+	<div id="image_pop_up_container">
+		<ul id="image-list">
+			
+		</ul>
+	</div>
 </div>
 
 	

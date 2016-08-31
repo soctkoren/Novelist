@@ -77,9 +77,8 @@ class StoriesController < ApplicationController
 
 	def images
 		if request.xhr?
-			puts "hey"
-			@photos = Unsplash::Photo.search("dogs")
-			@photos[0].to_json
+			search = params[:search]
+			@photos = Unsplash::Photo.search("#{search}")
 			render json: @photos
 		else
 			new_story_path
