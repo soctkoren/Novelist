@@ -2,12 +2,14 @@ $( document ).ready(function() {
 
   $("#img_icon").on("click", function(event){
     event.preventDefault();
+    console.log("clicked on image icon")
     $("#pop-up-container").removeClass("hidden");
     $("#img_icon").addClass("hidden");
   });
 
   $("#img_icon").on("submit", function(event){
     event.preventDefault();
+    console.log("whattt?")
   });
   
   $("#pop-up").on("submit", function(event){

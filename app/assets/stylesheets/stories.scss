@@ -18,7 +18,7 @@ $box-shadow-right: 0 10px 10px rgba(0,0,0,0.22);
 	width: 800px;
 	margin: 0 auto;
 	padding-top: 10%; 
-	padding-bottom: 25%;
+	padding-bottom: 10%;
 	background-color: $light-gray-color;
 }
 
@@ -33,6 +33,7 @@ $box-shadow-right: 0 10px 10px rgba(0,0,0,0.22);
 	margin: 0 auto;
 	padding-top: 8%;
 	background-color: $light-gray-color;
+	padding-bottom: 8%;
 }
 .story_container {
 	min-width: 400px;
@@ -228,7 +229,7 @@ h1 {
 .submits {
 	float: right;
 	margin-right: 20%;
-	margin-top: 10%;
+	margin-top: 6%;
 	background-color: $primary-color;
   border:none;
   font-size:1em;
@@ -240,7 +241,7 @@ h1 {
 #cancel {
 	float: left;
 	margin-left: 20%;
-	margin-top: 10%;
+	margin-top: 6%;
 	background-color: $primary-orange-dark;
   border:none;
   font-size:1em;
@@ -303,7 +304,7 @@ h1 {
 	border: 0;
 	font-size: 1.5em;
 	resize: none;
-	color:$middle-gray-color;
+	color:$primary-color;
 }
 
 #story_show_submit{
@@ -347,7 +348,7 @@ h1 {
 }
 
 .segment_right p {
-	color: $middle-gray-color;
+	color:$primary-color;
 	word-wrap: break-word;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -357,7 +358,7 @@ h1 {
 	background:none;
   border:none;
   font-size:1.5em;
-  color:$light-gray-color;
+  color:$primary-color;
   padding-left: 7px;
 }
 
@@ -365,7 +366,7 @@ h1 {
 	background:none;
   border:none;
   font-size:1.5em;
-  color:$light-gray-color;
+  color:$primary-color;
 	transform: rotate(-180deg);
 	padding-left: 7px;
 }
@@ -374,7 +375,7 @@ h1 {
 	margin-top: 0;
 	margin-bottom: 0;
 	text-align: center;
-	color:$light-gray-color;
+	color:$primary-color;
 }
 
 
