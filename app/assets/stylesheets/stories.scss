@@ -101,8 +101,34 @@ input:focus {outline:none;}
 }
 
 #image-list{
-
+	list-style-type: none;
+	padding-left: 0px;
+	vertical-align: middle;
 }
+
+#image-list ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0; 
+}
+
+#image-list li{
+	margin-top: 20px;
+	float: right;
+	margin: 0 auto;
+	text-align: center;
+	margin-right: 1%;
+	height: 100%;
+	width: 80px;
+	height: 80px;
+	margin: 5px;
+	font-size: 1.0em;
+	padding-right: 5px;
+	padding-left: 5px;
+	list-style-type: none;
+	display: inline-block;
+}
+
 
 h1 {
 	color: white;
