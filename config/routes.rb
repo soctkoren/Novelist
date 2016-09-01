@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resources :stories do 
   	get "images"
   end
-  
-  resources :segments
+ 
+  resources :segments do
+  	post "up"
+  	post "down"
+  end
   resources :sentences
 end
 

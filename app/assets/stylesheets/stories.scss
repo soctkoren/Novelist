@@ -369,6 +369,9 @@ h1 {
 	width: 5%;
 	height: 100%;
 	float: left;
+	//need below to make buttons clickable
+	position: relative;
+  z-index: 10;
 }
 
 .segment_right{
@@ -390,6 +393,9 @@ h1 {
   font-size:1.5em;
   color:$primary-color;
   padding-left: 7px;
+  z-index: 1;
+  display: block;
+  width: 100%;
 }
 
 .down {
@@ -399,6 +405,9 @@ h1 {
   color:$primary-color;
 	transform: rotate(-180deg);
 	padding-left: 7px;
+	z-index: 1;
+	display: block;
+	width: 100%;
 }
 
 .vote_counts {

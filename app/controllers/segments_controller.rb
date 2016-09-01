@@ -8,6 +8,14 @@ class SegmentsController < ApplicationController
 		redirect_to :back	
 	end
 
+	def up
+		puts "upp"
+	end
+
+	def down
+		puts "down"
+	end
+	
 	private
 		def segment_params
 			params.require(:segment).permit(:winning_sentence, :story_id, :sen)

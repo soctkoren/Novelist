@@ -56,6 +56,18 @@ $( document ).ready(function() {
     event.preventDefault();
     window.location.replace('/');
   }); 
+
+
+
+
+  $(".up").on("click", function(){
+    console.log("yooo")
+  });
+
+    $(".segment_left").on("click", function(event){
+      console.log("yo");
+    })
+
 });
 
 

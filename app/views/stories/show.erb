@@ -12,8 +12,7 @@
 			<div class="description_continatiner">
 				<div class="description_left_show_container">
 					<div>
-						<p>Next Update</p>
-						<p><%= @win_seg.last.created_at.strftime("%I %M %p, %B %d") %></p>
+						<p>Next Update: <%= @win_seg.last.created_at.strftime("%I %M %p") %></p>
 						<%= @story.segment_ended? %>
 					</div>
 				</div>
@@ -24,20 +23,22 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<%= form_for @new_segment do |f| %>
-			<%= f.text_area :sen, :class => 'story_show_input', placeholder:"Write here...", :autocomplete => 'off'%> 
-			<%= f.hidden_field :story_id, value:@story.id %>
-			<%= f.submit "create", :id => 'story_show_submit', :class => 'material-icons' %>
-			<% end %>
-		</div>
+		<% if user_signed_in? %>
+			<div>
+				<%= form_for @new_segment do |f| %>
+				<%= f.text_area :sen, :class => 'story_show_input', placeholder:"Write here...", :autocomplete => 'off'%> 
+				<%= f.hidden_field :story_id, value:@story.id %>
+				<%= f.submit "create", :id => 'story_show_submit', :class => 'material-icons' %>
+				<% end %>
+			</div>
+		<% end %>
 		<div>
 			<% @segs.each do |active_seg| %>
 				<div class="story_segments">
 						<div class="segment_left">
-							<button class="material-icons up">keyboard_arrow_up</button>	
-							<p class="vote_counts"><%=active_seg.sentence.votes_for.size%></p>
-							<button class="material-icons down">keyboard_arrow_up</button>
+							<button type="submit" class="material-icons up" id="up<%="#{active_seg.id}"%>">keyboard_arrow_up</button>	
+							<p class="vote_counts" id="vote<%="#{active_seg.id}"%>"><%=active_seg.sentence.votes_for.size%></p>
+							<button type="submit" class="material-icons down" id="down<%="#{active_seg.id}"%>">keyboard_arrow_up</button>
 						</div>
 					<div class="story_segment_body">
 
