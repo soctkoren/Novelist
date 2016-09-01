@@ -34,7 +34,6 @@ $( document ).ready(function() {
       
           $(".images_divs_img").on("click", function(){
             var selected_id = this.id;
-            // var selected_url = root_url + this.id;
             $("#story_image_url").val(selected_id);
             $(".image_container").css("background-image", `url(${this.src})`);
             $("#pop-up-container").addClass("hidden");
@@ -57,16 +56,21 @@ $( document ).ready(function() {
     window.location.replace('/');
   }); 
 
-
-
-
+  //
   $(".up").on("click", function(){
-    console.log("yooo")
+    var input = $(this).attr("value");
+    input = JSON.parse(input);
+    input["up"] = "up"
+    console.log(input)
+    // console.log(typeof input)
   });
 
-    $(".segment_left").on("click", function(event){
-      console.log("yo");
-    })
+  $(".down").on("click", function(){
+     var input = $(this).attr("value");
+    input = JSON.parse(input);
+    input["down"] = "down"
+    console.log(input)
+  });
 
 });
 
