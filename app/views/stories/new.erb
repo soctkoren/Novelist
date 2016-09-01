@@ -1,39 +1,40 @@
-	<%= form_for @story, :html => {:class => "story_form"} do |f| %>
-		<!-- one story box -->
-		<div class="story_container">
-			<div class="image_container" id="cat_images">
-				<div class="title_container">
-				<%= f.text_field :title, placeholder: "Enter Title", :autocomplete => 'off'%>
-				</div>
-				<div id="icon-div">
-					<button class="material-icons" id="img_icon">add_a_photo</button>	
-				</div>
-				<%= f.hidden_field :image_url %>
-				</div>
-					<div class="description_container">
-						<div class="first_sentence_container">
-						<%= f.text_field :sentence, placeholder:"Write your first sentence here...", :autocomplete => 'off'%>
+	<div class="story_body_container">
+		<%= form_for @story, :html => {:class => "story_form"} do |f| %>
+			<!-- one story box -->
+			<div class="story_container">
+				<div class="image_container" id="cat_images">
+					<div class="title_container">
+					<%= f.text_field :title, placeholder: "Enter Title", :autocomplete => 'off'%>
+					</div>
+					<div id="icon-div">
+						<button class="material-icons" id="img_icon">add_a_photo</button>	
+					</div>
+					<%= f.hidden_field :image_url %>
+					</div>
+						<div class="description_container">
+							<div class="first_sentence_container">
+							<%= f.text_field :sentence, placeholder:"Write your first sentence here...", :autocomplete => 'off'%>
+						</div>
 					</div>
 				</div>
+			<button id="cancel">Cancel</button>
+			<%= f.hidden_field :user_id, value:current_user.id %>
+			<%= f.submit "Submit", :class => 'submits'%>
 			</div>
+		<% end %>
+	</div>
+	<div id="pop-up-container" class="hidden">
+		<div>
+			<h1>search image category</h2>
 		</div>
-		<button id="cancel">Cancel</button>
-		<%= f.hidden_field :user_id, value:current_user.id %>
-		<%= f.submit "Submit", :class => 'submits'%>
-	<% end %>
-
-<div id="pop-up-container" class="hidden">
-	<div>
-		<h1>search image category</h2>
+		<form id="pop-up">
+			<input type="text" name="search" id="pop-search" autocomplete="off">
+		</form>
+		<div id="image_pop_up_container">
+			<ul id="image-list">
+				
+			</ul>
+		</div>
 	</div>
-	<form id="pop-up">
-		<input type="text" name="search" id="pop-search" autocomplete="off">
-	</form>
-	<div id="image_pop_up_container">
-		<ul id="image-list">
-			
-		</ul>
-	</div>
-</div>
 
 	

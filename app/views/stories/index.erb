@@ -1,26 +1,27 @@
-<div class="story_list_container">
-	<% @stories.each do |story| %>
-		<!-- one story box -->
-		<div class="story_container">
-			<a href=<%="/stories/#{story.id}"%>><div class="image_container" style="background-image: url(<%="#{@root_url}#{story.image_url}#{@query}"%>)">
-				<div class="title_container">
-					<%= story.title %>
+<div class="index-c">
+	<div class="story_list_container">
+		<% @stories.each do |story| %>
+			<!-- one story box -->
+			<div class="story_container">
+				<a href=<%="/stories/#{story.id}"%>><div class="image_container" style="background-image: url(<%="#{@root_url}#{story.image_url}#{@query}"%>)">
+					<div class="title_container_index">
+						<h1 id="show_titles_h1"><%= story.title %></h1>
+					</div>
 				</div>
+				<div class="description_container">
+					<div class="first_sentence_container">
+					</div>
+					<div class="notes_container">
+						<div class="next_update">
+							
+						</div>
+						<div class="contribute_hearts">
+							
+						</div>
+					</div>
+				</div></a>
 			</div>
-			<div class="description_container">
-				<div class="first_sentence_container">
-				</div>
-				<div class="notes_container">
-					<div class="next_update">
-						
-					</div>
-					<div class="contribute_hearts">
-						
-					</div>
-				</div>
-			</div></a>
-		</div>
 
-	<% end %>
-	
+		<% end %>
+	</div>
 </div>
