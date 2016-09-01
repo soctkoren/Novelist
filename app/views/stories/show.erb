@@ -12,9 +12,9 @@
 			<div class="description_continatiner">
 				<div class="description_left_show_container">
 					<div>
-						time info and book button
-						<p><%= @win_seg.last.created_at %></p>
-						<p><%= @story.segment_ended? %></p>
+						<p>Next Update</p>
+						<p><%= @win_seg.last.created_at.strftime("%I %M %p, %B %d") %></p>
+						<%= @story.segment_ended? %>
 					</div>
 				</div>
 				<div class="description_right_show_container">
