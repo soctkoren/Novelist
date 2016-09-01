@@ -90,6 +90,7 @@ $box-shadow-right: 0 10px 10px rgba(0,0,0,0.22);
 }
 
 input:focus {outline:none;}
+textarea, input { outline: none; }
 
 .description_container {
 	min-width: 360px;
@@ -197,9 +198,11 @@ h1 {
 	height: 60px;
 	margin: 0;
 	padding: 0;
+	padding-top: 7px;
 	border: none;
 	font-size: 1em;
 	text-align: justify;
+	resize: none;
 }
 
 #pop-up-container{
@@ -292,6 +295,7 @@ h1 {
 .image_show_container{
 	height: 500px;
 	background-size: cover;
+	background-color: white;
 }
 
 .show_story_title{

@@ -31,14 +31,16 @@
           <% end %>
 
           <li id:"new-story">
-            <%= link_to "New Story", new_story_path %>
+            <%= link_to "New Story", new_story_path, method: :get %>
           </li>
         </ul>
         </div>
     </div>
   	<!-- devise flash notices -->
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="notices hidden">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
   </body>
 </html>

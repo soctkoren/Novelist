@@ -108,3 +108,18 @@ body {
 }
 .notice {position: absolute}
 .alert {position:absolute}
+
+.notices {
+	width: 800px;
+	margin: 0 auto;
+	background-color: white;
+}
+
+.notice {
+	text-align: center;
+}
+
+.alert {
+	text-align: center;
+}
+
