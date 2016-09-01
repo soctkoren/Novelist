@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
 	def index
+		@root_url = "https://source.unsplash.com/"
+		@query = "/800x600"
 		@stories = Story.all
 	end
 

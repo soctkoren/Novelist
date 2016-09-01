@@ -53,5 +53,4 @@ $( document ).ready(function() {
     event.preventDefault();
     window.location.replace('/');
   }); 
-
 });

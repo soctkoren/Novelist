@@ -38,27 +38,35 @@ body {
 	height: 100%;
 	margin-right: 30px;
 	float:right;
+	text-align: right;
+	margin-top: 1.8%;
 }
 
 .nav-list ul {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
+	/*padding: 0;*/
 	overflow: hidden;
 }
 
 .nav-list li {
 	float: right;
+	margin: 0 auto
+	text-align: right;
 }
 
 .nav-list li a {
-	display: block;
 	color: #000026;
 	font-size: 1.2em;
 	text-align: center;
 	text-decoration: none;
 	font-weight: bold;
-	padding: 30px 16px;
+	white-space: nowrap;
+	/*padding: 30px 16px;*/
+}
+
+#new-story {
+	padding-top: 20px;
 }
 
 #serach {
@@ -69,13 +77,8 @@ body {
 	font-size: 40px;
 }
 
-#new-story {
-	margin-top: 5px;
-	
-}
-
 #log-off {
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 #home img {
