@@ -2,6 +2,7 @@ $primary-color: #000026;
 $primary-orange:#db7266;
 $primary-orange-dark:#c34b3d; 
 
+
 $story-container-color: white;
 $image-background-color: #e9e9e9; 
 
@@ -247,9 +248,35 @@ li {
 .story_segments{
 	background: white;
 	height: 120px;
-	margin: 0;
+	padding: 5px;
+	border-top: 0.8px;
+	border-style: solid;
+	border-right: 0px;
+	border-left: 0px;
+	border-bottom: 0px;
+	border-color: #d3d3d3;
+}
+.story_segments p {
+	padding-top: 1%
 }
 
+.story_segment_body {
+	height: 80%;
+	align-content: center;
+	position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
 
+.segment_left{
+	width: 5%;
+	float: left;
+}
+
+.segment_right{
+	width: 90%;
+	float: right;
+}
 
 

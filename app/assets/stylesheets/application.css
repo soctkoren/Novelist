@@ -23,7 +23,7 @@ body {
 }
 
 .navigation-container {
-	width: 100%
+	width: 800px;
 	margin: 0 auto;
 	padding: 0;
 	background-color: white;
@@ -35,29 +35,27 @@ body {
 }
 
 .nav-list {
-	margin-right: 30px;
-	float:right;
-	text-align: right;
+	float: right;
+	text-align: center;
 	margin-top: 1.8%;
 }
 
 .nav-list ul {
 	list-style-type: none;
-	margin: 0;
-	/*padding: 0;*/
-	overflow: hidden;
+/*	margin: 0;*/
 }
 
 .nav-list li {
+	margin-top: 20px;
 	float: right;
 	margin: 0 auto
-	text-align: right;
+	text-align: center;
 	height: 100%;
 }
 
 .nav-list li a {
 	color: #000026;
-	font-size: 1.2em;
+	font-size: 0.8em;
 	text-align: center;
 	text-decoration: none;
 	font-weight: bold;

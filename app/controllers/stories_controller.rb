@@ -68,7 +68,7 @@ class StoriesController < ApplicationController
       end
     end		
 	end
-
+	
 	def destroy
     @story.destroy
     respond_to do |format|

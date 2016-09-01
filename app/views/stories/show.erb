@@ -31,7 +31,17 @@
 		<div>
 			<% @segs.each do |active_seg| %>
 				<div class="story_segments">
-					<p><%= active_seg.sentence.sentence %></p>
+						<div class="segment_left">
+							<p>up</p>
+						</div>
+					<div class="story_segment_body">
+
+						<div class="segment_right">
+							
+							<p><%= active_seg.sentence.sentence %></p>
+						</div>
+						
+					</div>
 				</div>
 			<% end %>
 			<div>
