@@ -38,7 +38,7 @@ $box-shadow-right: 0 10px 10px rgba(0,0,0,0.22);
 	border-color: $story-container-color;
 	background-color: $image-background-color;
 	background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 
 .title_container {
@@ -207,3 +207,49 @@ li {
 // #img_icon p:hover {
 // 	cursor: default
 // }
+
+//show
+.story_show_container {
+	width: 100%;
+}
+
+.center_show_story{
+	width: 800px;
+	margin: 0 auto;
+}
+
+.image_show_container{
+	height: 500px;
+	background-size: cover;
+}
+
+#new_segment{
+	background-color: white;
+	height: 90px;
+}
+
+.story_show_input{
+	width: 80%;
+	height: 100%;
+	outline: none;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 0;
+	font-size: 2.0em;
+}
+
+.story_show_submit{
+	background: none;
+	border: none;
+}
+
+.story_segments{
+	background: white;
+	height: 120px;
+	margin: 0;
+}
+
+
+
+

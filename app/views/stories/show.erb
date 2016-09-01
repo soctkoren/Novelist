@@ -1,48 +1,43 @@
-<div>
-	<%= @story.inspect %>
-	<div>
-		image goes here
-		<%= @story[:image_url] %>
-		<div>
-			Add a slider, but for now just list them
-			<ol>
-				<% @win_seg.each do |seg| %>
-					<%= seg.sentence.inspect %>
-				<% end %>
-			</ol>
-		</div>
-		<div>
-			time info and book button
-			<%= @win_seg.last.created_at %>
-			<%= @story.segment_ended? %>
-		</div>
-		<div>
-			contributors and likes
-			<%= @contributors %>
-		</div>
-	</div>
-
-	
-	<div>
-		write here ajax here
-		<%= form_for @new_segment do |f| %>
-		<%= f.text_field :sen %> 
-		<%= f.text_field :story_id, value:@story.id %>
-		<%= f.submit %>
-		<% end %>
-	</div>
-	<div>
-		container for segments
-		<% @segs.each do |active_seg| %>
-			<ol>
+<div class="story_show_container">
+	<div class="center_show_story">
+		<div class="image_show_container" style="background-image: url(<%="#{@root_url}#{@story.image_url}#{@query}"%>)">
+			image goes here
+			<%= @story[:image_url] %>
 			<div>
-				<%= active_seg.sentence.sentence %>
+				Add a slider, but for now just list them
+				<ol>
+					<%#<% @win_seg.each do |seg| %>
+						<%#<%= seg.sentence.inspect %>
+					<%#<% end %>
+				</ol>
 			</div>
-			</ol>
-		<% end %>
+			<div>
+				time info and book button
+				<%= @win_seg.last.created_at %>
+				<%= @story.segment_ended? %>
+			</div>
+			<div>
+				contributors and likes
+				<%= @contributors %>
+			</div>
+		</div>
 		<div>
-			each segments goes here
+			<%= form_for @new_segment do |f| %>
+			<%= f.text_field :sen, :class => 'story_show_input', placeholder:"Write here...", :autocomplete => 'off'%> 
+			<%= f.hidden_field :story_id, value:@story.id %>
+			<%= f.submit "Suggest", :id => 'story_show_submit', :class => 'material-icons' %>
+			<% end %>
+		</div>
+		<div>
+			<% @segs.each do |active_seg| %>
+				<div class="story_segments">
+					<p><%= active_seg.sentence.sentence %></p>
+				</div>
+			<% end %>
+			<div>
+				each segments goes here
 
+			</div>
 		</div>
 	</div>
 </div>

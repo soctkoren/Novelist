@@ -1,22 +1,24 @@
 class StoriesController < ApplicationController
 	def index
 		@root_url = "https://source.unsplash.com/"
-		@query = "/800x600"
+		@query = "/800x640"
 		@stories = Story.all
 	end
 
 	def show
+		@root_url = "https://source.unsplash.com/"
+		@query = "/800x640"
 		@story = Story.find(params[:id])
 		if user_signed_in?
 			@new_segment = Segment.new
 			@new_sentence = Sentence.new
 		end
-		@segs = @story.segments
-		@win_seg = @segs.where(winning_sentence: true)
-		
-		#TODO refactor into the model when you have time
-		@contributors = []
-		@win_seg.each do |seg|
+			@segs = @story.segments
+			@win_seg = @segs.where(winning_sentence: true)
+			
+			#TODO refactor into the model when you have time
+			@contributors = []
+			@win_seg.each do |seg|
 			@contributors << seg.sentence.user
 		end
 	end
@@ -44,7 +46,6 @@ class StoriesController < ApplicationController
 		@first_sentence = story_params[:sentence]
 		sentence = Sentence.create(segment_id: segment.id, user_id: story_params[:user_id], sentence: @first_sentence)
 		# vote = Vote.create(vote_count: 1, user_id: story_params[:user_id], sentence_id: sentence.id)
-
 	 	respond_to do |format|
 	    if @story.save
 	      format.html { redirect_to @story, notice: 'Story was successfully created.' }
@@ -81,6 +82,17 @@ class StoriesController < ApplicationController
 		if request.xhr?
 			search = params[:search]
 			@photos = Unsplash::Photo.search("#{search}")
+
+			ids = []
+			@photos.each do |photo|
+				ids << photo.id
+			end
+			
+			# root_url "https://source.unsplash.com/"
+			# query
+			# hash = {}
+			p @photos[0].methods
+			#TODO build the html links here and send it back.
 			render json: @photos
 		else
 			new_story_path
