@@ -1,43 +1,47 @@
 <div class="story_show_container">
 	<div class="center_show_story">
 		<div class="image_show_container" style="background-image: url(<%="#{@root_url}#{@story.image_url}#{@query}"%>)">
-			image goes here
-			<%= @story[:image_url] %>
-			<div>
-				Add a slider, but for now just list them
+			<div class="show_story_title">
+				<h1 id="show_titles_h1"><%= @story.title %></h1>
 				<ol>
 					<%#<% @win_seg.each do |seg| %>
 						<%#<%= seg.sentence.inspect %>
 					<%#<% end %>
 				</ol>
 			</div>
-			<div>
-				time info and book button
-				<%= @win_seg.last.created_at %>
-				<%= @story.segment_ended? %>
-			</div>
-			<div>
-				contributors and likes
-				<%= @contributors %>
+			<div class="description_continatiner">
+				<div class="description_left_show_container">
+					<div>
+						time info and book button
+						<p><%= @win_seg.last.created_at %></p>
+						<p><%= @story.segment_ended? %></p>
+					</div>
+				</div>
+				<div class="description_right_show_container">
+					<div>
+						<%= @contributors %>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div>
 			<%= form_for @new_segment do |f| %>
-			<%= f.text_field :sen, :class => 'story_show_input', placeholder:"Write here...", :autocomplete => 'off'%> 
+			<%= f.text_area :sen, :class => 'story_show_input', placeholder:"Write here...", :autocomplete => 'off'%> 
 			<%= f.hidden_field :story_id, value:@story.id %>
-			<%= f.submit "Suggest", :id => 'story_show_submit', :class => 'material-icons' %>
+			<%= f.submit "create", :id => 'story_show_submit', :class => 'material-icons' %>
 			<% end %>
 		</div>
 		<div>
 			<% @segs.each do |active_seg| %>
 				<div class="story_segments">
 						<div class="segment_left">
-							<p>up</p>
+							<button class="material-icons up">keyboard_arrow_up</button>	
+							<p class="vote_counts"><%=active_seg.sentence.votes_for.size%></p>
+							<button class="material-icons down">keyboard_arrow_up</button>
 						</div>
 					<div class="story_segment_body">
 
 						<div class="segment_right">
-							
 							<p><%= active_seg.sentence.sentence %></p>
 						</div>
 						
@@ -45,8 +49,6 @@
 				</div>
 			<% end %>
 			<div>
-				each segments goes here
-
 			</div>
 		</div>
 	</div>

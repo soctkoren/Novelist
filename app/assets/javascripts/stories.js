@@ -5,6 +5,10 @@ $( document ).ready(function() {
     $("#pop-up-container").removeClass("hidden");
     $("#img_icon").addClass("hidden");
   });
+
+  $("#img_icon").on("submit", function(event){
+    event.preventDefault();
+  });
   
   $("#pop-up").on("submit", function(event){
   	// var searchTerm = $("#pop-up input:first").val();
@@ -51,3 +55,5 @@ $( document ).ready(function() {
     window.location.replace('/');
   }); 
 });
+
+
