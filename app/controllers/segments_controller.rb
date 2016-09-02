@@ -20,7 +20,13 @@ class SegmentsController < ApplicationController
 			sentence.liked_by current_user
 			puts sentence.votes_for.size
 			tally = sentence.get_likes.size - sentence.get_dislikes.size
-			render :json => sentence
+
+			response = {
+				"count" => tally,
+				"segment_id" => seg_id
+			}
+
+			render :json => response.as_json
 		else
 			# TODO need to catch and rescue
 		end
@@ -37,7 +43,13 @@ class SegmentsController < ApplicationController
 		
 			sentence.disliked_by current_user
 			tally = sentence.get_likes.size - sentence.get_dislikes.size
-			render :json => sentence
+			
+			response = {
+				"count" => tally,
+				"segment_id" => seg_id
+			}
+
+			render :json => response.as_json
 		end
 	end
 	

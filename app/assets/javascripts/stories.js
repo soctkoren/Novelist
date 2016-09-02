@@ -67,10 +67,12 @@ $( document ).ready(function() {
       data: input
     })
     .done(function(response){
-        var count = response.length
-        var id = input.id
-        var selector = "#vote" + id
-        $(selector).html(count);
+
+        console.log(response);
+
+        var selector = "#vote" + response["segment_id"]
+        console.log(selector);
+        $(selector).html(response["count"]).css("color", "#c34b3d");
     })
 
   //down
@@ -87,10 +89,9 @@ $( document ).ready(function() {
       data: input
     })
     .done(function(response){
-        var count = response.length
-        var id = input.id
-        var selector = "#vote" + id
-        $(selector).html(count);
+   
+        var selector = "#vote" + response["segment_id"];
+        $(selector).html(response["count"]).css("color", "#c34b3d");;
     })
 
 
