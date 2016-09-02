@@ -10,34 +10,35 @@ class SegmentsController < ApplicationController
 
 	def up
 		if request.xhr?
-			puts "upp"
-			puts params.inspect
-			puts "this is a json"
-			#todo need to figure out how to parse json.
+			seg_id = params[:id]
+			story_id = params[:story_id]
 
-			puts json
-			puts "this is a json above"
-			# search = params[:search]
-			# @photos = Unsplash::Photo.search("#{search}")
+			current_story = Story.find(story_id)
+			seg = Segment.find(seg_id)
+			sentence = seg.sentence
 
-			# ids = []
-			# @photos.each do |photo|
-			# 	ids << photo.id
-			# end
-			
-			# root_url "https://source.unsplash.com/"
-			# query
-			# hash = {}
-			# p @photos[0].methods
-			#TODO build the html links here and send it back.
-			# render json: @photos
+			sentence.liked_by current_user
+			puts sentence.votes_for.size
+			tally = sentence.get_likes.size - sentence.get_dislikes.size
+			render :json => sentence
 		else
-			new_story_path
+			# TODO need to catch and rescue
 		end
 	end
 
 	def down
-		puts "down"
+		if request.xhr?
+			seg_id = params[:id]
+			story_id = params[:story_id]
+
+			current_story = Story.find(story_id)
+			seg = Segment.find(seg_id)
+			sentence = seg.sentence
+		
+			sentence.disliked_by current_user
+			tally = sentence.get_likes.size - sentence.get_dislikes.size
+			render :json => sentence
+		end
 	end
 	
 	private

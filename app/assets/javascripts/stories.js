@@ -60,38 +60,17 @@ $( document ).ready(function() {
   $(".up").on("click", function(){
     var input = $(this).attr("value");
     input = JSON.parse(input);
-    input["up"] = "up"
-    console.log(input)
-    stringy = JSON.stringify(input)
-    segment_id = input.id
-    // console.log(typeof input)
-    segment_id = input.id
     url = `/segments/1/up`;
-    // /segments/:segment_id/up
     $.ajax({
       method: 'post',
       url: url,
-      data: stringy
+      data: input
     })
     .done(function(response){
-    
-      // var root_url = "https://source.unsplash.com/"
-      // $.each(response, function(index, response) {
-        console.log(response)
-        var id = response
-        // var query = '/800x600';
-        // let my_url = root_url + id + query;
-        // //get all the cats
-        // $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
-      
-        // $(".images_divs_img").on("click", function(){
-        //   var selected_id = this.id;
-        //   $("#story_image_url").val(selected_id);
-        //   $(".image_container").css("background-image", `url(${this.src})`);
-        //   $("#pop-up-container").addClass("hidden");
-        //   $("#img_icon").removeClass("hidden");
-        // }); 
-      // }); 
+        var count = response.length
+        var id = input.id
+        var selector = "#vote" + id
+        $(selector).html(count);
     })
 
   //down
@@ -99,38 +78,19 @@ $( document ).ready(function() {
   });
 
   $(".down").on("click", function(){
-     var input = $(this).attr("value");
+    var input = $(this).attr("value");
     input = JSON.parse(input);
-    input["down"] = "down"
-    console.log(input)
-    stringy = JSON.stringify(input)
-    segment_id = input.id
     url = `/segments/1/down`;
-    // /segments/:segment_id/up
     $.ajax({
       method: 'post',
       url: url,
-      data: stringy
+      data: input
     })
     .done(function(response){
-    
-      // var root_url = "https://source.unsplash.com/"
-      // $.each(response, function(index, response) {
-        console.log(response)
-        var id = response
-        // var query = '/800x600';
-        // let my_url = root_url + id + query;
-        // //get all the cats
-        // $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
-      
-        // $(".images_divs_img").on("click", function(){
-        //   var selected_id = this.id;
-        //   $("#story_image_url").val(selected_id);
-        //   $(".image_container").css("background-image", `url(${this.src})`);
-        //   $("#pop-up-container").addClass("hidden");
-        //   $("#img_icon").removeClass("hidden");
-        // }); 
-      // }); 
+        var count = response.length
+        var id = input.id
+        var selector = "#vote" + id
+        $(selector).html(count);
     })
 
 

@@ -36,8 +36,9 @@
 			<% @segs.each do |active_seg| %>
 				<div class="story_segments">
 						<div class="segment_left">
-							<button type="submit" class="material-icons up" value="<%=active_seg.to_json%>">keyboard_arrow_up</button>	
-							<p class="vote_counts" id="vote<%="#{active_seg.id}"%>"><%=active_seg.sentence.votes_for.size%></p>
+							<button type="submit" class="material-icons up" value="<%=active_seg.to_json%>">keyboard_arrow_up</button>
+							<% votes = active_seg.sentence %>
+							<p class="vote_counts" id="vote<%="#{active_seg.id}"%>"><%=votes.get_likes.size - votes.get_dislikes.size%></p>
 							<button type="submit" class="material-icons down" value="<%=active_seg.to_json%>">keyboard_arrow_up</button>
 						</div>
 					<div class="story_segment_body">

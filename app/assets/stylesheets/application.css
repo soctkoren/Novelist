@@ -99,12 +99,13 @@ body {
 
 #home img {
 	margin-top: 18px;
-	padding-left: 40px;
-	max-height: 60px
+	padding-left: 25px;
+	max-height: 50px
 }
 
 #search_button a{
 	color: #c34b3d;
+	font-size: 1.4em;
 }
 .notice {position: absolute}
 .alert {position:absolute}
