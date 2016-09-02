@@ -3,7 +3,8 @@
 		<% @stories.each do |story| %>
 			<!-- one story box -->
 			<div class="story_container">
-				<a href=<%="/stories/#{story.id}"%>><div class="image_container" style="background-image: url(<%="#{@root_url}#{story.image_url}#{@query}"%>)">
+				<%= link_to story_path(story), method: :get do %>
+					<div class="image_container" style="background-image: url(<%="#{@root_url}#{story.image_url}#{@query}"%>)">
 					<div class="title_container_index">
 						<h1 id="show_titles_h1"><%= story.title %></h1>
 					</div>
@@ -21,7 +22,7 @@
 					</div>
 				</div></a>
 			</div>
-
+			<% end %>
 		<% end %>
 	</div>
 </div>
