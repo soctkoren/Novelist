@@ -9,14 +9,23 @@ class StoriesController < ApplicationController
 		@root_url = "https://source.unsplash.com/"
 		@query = "/800x640"
 		@story = Story.find(params[:id])
+		
+		# for writing a new segment
 		if user_signed_in?
 			@new_segment = Segment.new
 			@new_sentence = Sentence.new
 		end
+
 			@segs = @story.segments
 			@win_seg = @segs.where(winning_sentence: true)
 			
 			#TODO refactor into the model when you have time
+			# logic for update
+			update_timer_in_sec = 180
+			next_winner_time = @win_seg.last.updated_at + update_timer_in_sec
+			#convert from UTC to PST just for display
+			@display = next_winner_time.in_time_zone("Pacific Time (US & Canada)").strftime("%I %M %p") 
+
 			@contributors = []
 			@win_seg.each do |seg|
 			@contributors << seg.sentence.user
