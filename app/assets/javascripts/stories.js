@@ -97,6 +97,16 @@ $( document ).ready(function() {
 
   });
 
+  $(document).ready(function(){
+    $('.bxslider').bxSlider({
+      // config options
+      adaptiveHeight: true,
+      pagerType: 'short',
+
+
+    });
+  });
+
 });
 
 

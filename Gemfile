@@ -22,6 +22,8 @@ gem 'devise'
 gem 'acts_as_votable', '~> 0.10.0'
 # unsplash
 gem 'unsplash'
+# slider
+gem 'bxslider-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
