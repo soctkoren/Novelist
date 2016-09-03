@@ -4,4 +4,9 @@ class Sentence < ApplicationRecord
 	
 	belongs_to :user
 	belongs_to :segment
+
+	def get_vote_count
+		self.get_likes.size - self.get_dislikes.size
+	end
+
 end

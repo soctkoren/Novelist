@@ -33,7 +33,7 @@
 			</div>
 		<% end %>
 		<div>
-			<% @segs.each do |active_seg| %>
+			<% @sorted.each do |active_seg| %>
 				<div class="story_segments">
 						<div class="segment_left">
 							<button type="submit" class="material-icons up" value="<%=active_seg.to_json%>">keyboard_arrow_up</button>

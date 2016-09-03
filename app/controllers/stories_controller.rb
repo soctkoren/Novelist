@@ -19,12 +19,30 @@ class StoriesController < ApplicationController
 			@segs = @story.segments
 			@win_seg = @segs.where(winning_sentence: true)
 			
+			last_seg_time = @win_seg.last.updated_at
+			@active_segs = @segs.where("updated_at >= ?", last_seg_time);
+			puts @active_segs
+			@sorted = @active_segs.sort { |a,b| b.sentence.get_vote_count <=> a.sentence.get_vote_count }
+			puts @sorted
+
 			#TODO refactor into the model when you have time
 			# logic for update
 			update_timer_in_sec = 180
 			next_winner_time = @win_seg.last.updated_at + update_timer_in_sec
 			#convert from UTC to PST just for display
 			@display = next_winner_time.in_time_zone("Pacific Time (US & Canada)").strftime("%I %M %p") 
+
+			if @story.segment_ended? > 180
+				puts @story.segment_ended?
+				puts "it's time to udate some shit"
+
+				all_current_segs = @segs.where("updated_at >= ?", last_seg_time);
+				# winning_sentence = all_current_segs.order()
+				puts all_current_segs
+
+				# active_segs = @story.grab_all_active_segments(last_winning_seg_time)
+				#find all segments where time is greater than the last updated time of the last winning segment
+			end
 
 			@contributors = []
 			@win_seg.each do |seg|
