@@ -15,34 +15,53 @@ class StoriesController < ApplicationController
 			@new_segment = Segment.new
 			@new_sentence = Sentence.new
 		end
+			#TODO refactor logic into model
 
 			@segs = @story.segments
+
+			# Grabs all winning segments
 			@win_seg = @segs.where(winning_sentence: true)
-			
+
+			# Last winning segments update time
 			last_seg_time = @win_seg.last.updated_at
-			@active_segs = @segs.where("updated_at >= ?", last_seg_time);
-			puts @active_segs
+
+			# Query for active segments
+			@active_segs = @segs.where(["updated_at >= '%s' and winning_sentence = '%s'", last_seg_time, false])
+
+			# Sorting active segs by vote count
 			@sorted = @active_segs.sort { |a,b| b.sentence.get_vote_count <=> a.sentence.get_vote_count }
-			puts @sorted
 
-			#TODO refactor into the model when you have time
 			# logic for update
+
+			# Think about given the user access to the update time. 
 			update_timer_in_sec = 180
-			next_winner_time = @win_seg.last.updated_at + update_timer_in_sec
+
 			#convert from UTC to PST just for display
-			@display = next_winner_time.in_time_zone("Pacific Time (US & Canada)").strftime("%I %M %p") 
+			
+			if @story.segment_ended(last_seg_time) > update_timer_in_sec
+				
+				#logic to make sure only stories with more than one sentence is active
+				if @sorted.length > 0
+					puts @story.segment_ended(last_seg_time)
 
-			if @story.segment_ended? > 180
-				puts @story.segment_ended?
-				puts "it's time to udate some shit"
+					puts "it's time to udate some shit"
+					winner = @sorted.shift
+					winner.winning_sentence = true
+					winner.save
 
-				all_current_segs = @segs.where("updated_at >= ?", last_seg_time);
-				# winning_sentence = all_current_segs.order()
-				puts all_current_segs
+					# Last winning segments update time
+					last_seg_time = @win_seg.last.updated_at
 
-				# active_segs = @story.grab_all_active_segments(last_winning_seg_time)
-				#find all segments where time is greater than the last updated time of the last winning segment
+					# Query for active segments
+					@active_segs = @segs.where(["updated_at >= '%s' and winning_sentence = '%s'", last_seg_time, false])
+
+					# Sorting active segs by vote count
+					@sorted = @active_segs.sort { |a,b| b.sentence.get_vote_count <=> a.sentence.get_vote_count }
+				end
 			end
+
+			next_winner_time = @win_seg.last.updated_at + update_timer_in_sec
+			@display = next_winner_time.in_time_zone("Pacific Time (US & Canada)").strftime("%I %M %p") 
 
 			@contributors = []
 			@win_seg.each do |seg|

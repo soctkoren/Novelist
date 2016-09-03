@@ -6,9 +6,9 @@ class Story < ApplicationRecord
 
 	attr_accessor :sentence
 
-	def segment_ended?
+	def segment_ended(last_seg_time)
 		#TODO double check if this works
-		Time.now - self.created_at 
+		Time.now - last_seg_time 
 	end
 
 	def sort_seg
