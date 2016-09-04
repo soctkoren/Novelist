@@ -99,11 +99,9 @@ $( document ).ready(function() {
 
   $(document).ready(function(){
     $('.bxslider').bxSlider({
-      // config options
-      adaptiveHeight: true,
+      // adaptiveHeight: true,
       pagerType: 'short',
-
-
+      responsive : false,
     });
   });
 

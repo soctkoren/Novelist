@@ -1,3 +1,43 @@
 // Place all the styles related to the sentences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #000026;
+
+.bx-wrapper {
+	margin-top: 170px;
+	background-color: transparent;
+	-moz-box-shadow: 0 0 0 0;
+  -webkit-box-shadow: 0 0 0;
+	border: 0;
+}
+
+.bx-viewport {
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bxslider {
+	background-color: transparent;
+}
+
+.bxslider ul {
+	background-color: transparent;
+}
+
+.bxslider li {
+	background-color: transparent;
+	text-align: center;
+	align-items: center;
+	color: white;
+	word-wrap: break-word;
+	margin-left: 60px;
+	padding-right: 120px;
+	height: 100px;
+}
+
+.bx-pager {
+	position: absolute;
+	top: 250px;
+	left: 290px;
+	color: $primary-color;
+}
