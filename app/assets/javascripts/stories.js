@@ -29,7 +29,7 @@ $( document ).ready(function() {
       $.each(response, function(index, response) {
         var id = response.attributes.table.id;
         var query = '/800x600';
-        let my_url = root_url + id + query;
+        var my_url = root_url + id + query;
         //get all the cats
         $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
       
