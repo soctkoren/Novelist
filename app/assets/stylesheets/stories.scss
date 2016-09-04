@@ -183,7 +183,21 @@ h1 {
 
 .description_left_show_container p {
 	margin-left: 5px;
+	display: inline-block;
+	float: left;
 }
+
+#myBtn {
+	background:none;
+  border:none;
+  font-size:2em;
+  color: $primary-orange-dark;
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 5px;
+	float: right;
+}
+
 
 .description_right_show_container {
 	width: 150px;

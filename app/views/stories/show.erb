@@ -11,8 +11,10 @@
 			</div>
 			<div class="description_continatiner">
 				<div class="description_left_show_container">
-					<div>
+					<div class="description_left_blocks">
 						<p>Update: <%= @display %></p>
+						<!-- Trigger/Open The Modal -->
+						<button id="myBtn" class="material-icons">local_library</button>
 					</div>
 				</div>
 				<div class="description_right_show_container">
@@ -52,5 +54,26 @@
 			<div>
 			</div>
 		</div>
+	</div>
+
+<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <span class="close">×</span>
+	      <h2 class="model_title"><%=@story.title%></h2>
+	    </div>
+	    <div class="modal-body">
+	    <% @win_seg.each do |seg| %>
+	      <p><%=seg.sentence.sentence%></p>
+	    <% end %>  
+	    </div>
+	    <div class="modal-footer">
+	      <h3>Novelist</h3>
+	    </div>
+	  </div>
+
 	</div>
 </div>
