@@ -24,6 +24,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'unsplash'
 # slider
 gem 'bxslider-rails'
+# pagnation
+gem 'will_paginate', '~> 3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

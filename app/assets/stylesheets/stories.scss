@@ -465,7 +465,55 @@ h1 {
 	color: $primary-orange-dark
 }
 
+.notes_container {
+	text-shadow: 0px 0px 0px #000000;
+	color: $primary-color;
+}
 .contribute_hearts {
 	color: $primary-orange-dark;
+	text-shadow: 0px 0px 0px #000000;
+	float: right;
+	margin-top: 15px;
+}
+
+
+.contribute_hearts p {
+	margin: 0 auto;
+	display: inline-block;
+	font-size: 1.0em
+}
+
+.contribute_hearts span {
+	margin: 0 auto;
+	display: inline-block;
+	font-size: 0.7em
+}
+
+.paginate {
+	padding-top: 15px;
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: white;
+	color: $primary-orange-dark;
+	text-decoration: none;
+	border: none;
+}
+
+.paginate a:link {
+    color: $primary-color;
+    text-decoration: none;
+}
+
+/* visited link */
+.paginate a:visited {
+    color: $primary-color;
+    text-decoration: none;
+}
+
+/* mouse over link */
+.paginate a:hover {
+    color: $primary-orange-dark;
+    text-decoration: none;
 }
 

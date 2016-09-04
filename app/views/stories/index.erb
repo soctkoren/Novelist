@@ -13,17 +13,17 @@
 					<div class="first_sentence_container">
 					</div>
 					<div class="notes_container">
-						<div class="next_update">
-							
-						</div>
 						<div class="contribute_hearts">
-							<p><%=story.get_likes.size%></p>
-							<p class="material-icons fav">favorite</p>
+							<p><%=story.get_likes.size%><span class="material-icons">favorite</span></p>
 						</div>
+							<p><%= story.get_last_seg.sentence.sentence %></p>
 					</div>
 				</div></a>
 			</div>
 			<% end %>
 		<% end %>
 	</div>
+		<div class="paginate">
+			<%= will_paginate @stories %>
+		</div>
 </div>

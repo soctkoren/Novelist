@@ -2,13 +2,14 @@ class StoriesController < ApplicationController
 	def index
 		@root_url = "https://source.unsplash.com/"
 		@query = "/800x640"
-		@stories = Story.all
+		@stories = Story.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def show
 		@root_url = "https://source.unsplash.com/"
 		@query = "/800x640"
 		@story = Story.find(params[:id])
+
 		
 		@liked = false
 		# for writing a new segment

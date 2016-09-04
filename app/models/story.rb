@@ -11,8 +11,8 @@ class Story < ApplicationRecord
 		Time.now - last_seg_time 
 	end
 
-	def sort_seg
-
+	def get_last_seg
+		self.segments.last
 	end
 
 	def grab_all_active_segments(last_winning_seg)
