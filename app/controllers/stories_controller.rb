@@ -10,11 +10,22 @@ class StoriesController < ApplicationController
 		@query = "/800x640"
 		@story = Story.find(params[:id])
 		
+		@liked = false
 		# for writing a new segment
 		if user_signed_in?
 			@new_segment = Segment.new
 			@new_sentence = Sentence.new
-		end
+
+			
+			# check for likes
+			all_likes = @story.get_likes
+				all_likes.each do |voters|
+					if voters.voter_id == current_user.id
+						@liked = true
+					end
+				end
+			end
+
 			#TODO refactor logic into model
 
 			@segs = @story.segments
@@ -142,6 +153,21 @@ class StoriesController < ApplicationController
 			render json: @photos
 		else
 			new_story_path
+		end
+	end
+
+	def favorite
+		if request.xhr?
+			current_story = Story.find(params[:id])
+			current_story.liked_by current_user
+		end
+	end
+
+	def unfavorite
+		if request.xhr?
+			puts params
+			current_story = Story.find(params[:id])
+			current_story.disliked_by current_user
 		end
 	end
 

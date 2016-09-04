@@ -93,9 +93,49 @@ $( document ).ready(function() {
         var selector = "#vote" + response["segment_id"];
         $(selector).html(response["count"]).css("color", "#c34b3d");;
     })
-
-
   });
+
+
+  // favorite
+  $(".favorite").on("click", function(){
+    var input = $(this).attr("value");
+    input = JSON.parse(input);
+    console.log(input);
+    url = `/stories/1/favorite`;
+    $.ajax({
+      method: 'post',
+      url: url,
+      data: input
+    })
+    .done(function(response){
+        // var selector = "#vote" + response["segment_id"];
+        // $(selector).html(response["count"]).css("color", "#c34b3d");;
+      $(".favorite").addClass('unfavorite');
+      $(".favorite").removeClass('favorite');
+      console.log(this);
+    })
+  });
+
+  // todo: make this into a toggle
+
+  $(".unfavorite").on("click", function(){
+    var input = $(this).attr("value");
+    input = JSON.parse(input);
+    console.log(input);
+    url = `/stories/1/unfavorite`;
+    $.ajax({
+      method: 'post',
+      url: url,
+      data: input
+    })
+    .done(function(response){
+        // var selector = "#vote" + response["segment_id"];
+        // $(selector).html(response["count"]).css("color", "#c34b3d");;
+      $(".unfavorite").addClass('favorite');
+      $(".unfavorite").removeClass('unfavorite'); 
+    })
+  });
+
 
   $(document).ready(function(){
     $('.bxslider').bxSlider({

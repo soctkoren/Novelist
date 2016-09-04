@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :stories do 
   	get "images"
+    post "favorite"
+    post "unfavorite"
   end
  
   resources :segments do

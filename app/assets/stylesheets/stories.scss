@@ -435,3 +435,37 @@ h1 {
 	color:$primary-color;
 }
 
+.favorite {
+	background:none;
+  border:none;
+  font-size:2.5em;
+  color: $primary-orange-dark;
+  display: inline-block;
+  margin-top: 7px;
+  margin-right: 15px;
+	float: right;
+}
+
+.unfavorite {
+	background:none;
+  border:none;
+  font-size:2.5em;
+  color: $middle-gray-color;
+  display: inline-block;
+  margin-top: 7px;
+  margin-right: 15px;
+	float: right;
+}
+
+.not {
+	color: $middle-gray-color;
+}
+
+.yes {
+	color: $primary-orange-dark
+}
+
+.contribute_hearts {
+	color: $primary-orange-dark;
+}
+

@@ -39,6 +39,20 @@ body {
 	border-color: #d3d3d3;
 }
 
+.footer-container {
+	width: 800px;
+	margin: 0 auto;
+	padding: 0;
+	background-color: white;
+	height: 60px;
+	border-bottom: 0.8px;
+	border-width: 1.5px;
+	border-style: solid;
+	border-right: 0px;
+	border-left: 0px;
+	border-color: #d3d3d3;
+}
+
 .nav-img {
 	float: left;
 }
