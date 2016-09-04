@@ -1,4 +1,4 @@
-$primary-color: #000026;
+$primary-color: #323251;
 $primary-orange:#db7266;
 $primary-orange-dark:#c34b3d; 
 
@@ -494,26 +494,26 @@ h1 {
 	width: 800px;
 	margin: 0 auto;
 	text-align: center;
-	background-color: white;
-	color: $primary-orange-dark;
+	background-color: $primary-color;
+	color: white;
 	text-decoration: none;
 	border: none;
 }
 
 .paginate a:link {
-    color: $primary-color;
+    color: $primary-orange-dark;
     text-decoration: none;
 }
 
 /* visited link */
 .paginate a:visited {
-    color: $primary-color;
+    color: $primary-orange-dark;
     text-decoration: none;
 }
 
 /* mouse over link */
 .paginate a:hover {
-    color: $primary-orange-dark;
+    color: white;
     text-decoration: none;
 }
 
