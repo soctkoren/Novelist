@@ -4,6 +4,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log("clicked on image icon")
     $("#pop-up-container").removeClass("hidden");
+    $("#pop-up-container").addClass("bounceIn");
     $("#img_icon").addClass("hidden");
   });
 
@@ -36,7 +37,7 @@ $( document ).ready(function() {
           var selected_id = this.id;
           $("#story_image_url").val(selected_id);
           $(".image_container").css("background-image", `url(${this.src})`);
-          $("#pop-up-container").addClass("hidden");
+          $("#pop-up-container").addClass("bounceOut");
           $("#img_icon").removeClass("hidden");
         }); 
       }); 
@@ -157,7 +158,6 @@ $( document ).ready(function() {
   // When the user clicks the button, open the modal
   btn.onclick = function() {
       modal.style.display = "block";
-
       $(".bx-prev").hide();
       $(".bx-next").hide();
 

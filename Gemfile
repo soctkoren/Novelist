@@ -26,6 +26,8 @@ gem 'unsplash'
 gem 'bxslider-rails'
 # pagnation
 gem 'will_paginate', '~> 3.1.0'
+# animation
+gem "animate-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
