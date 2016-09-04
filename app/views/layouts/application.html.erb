@@ -20,19 +20,19 @@
           <li id="search_button">
             <%= link_to "search", new_story_path, class:"material-icons", id: "serach" %>
           </li>
+          <li id:"new-story">
+            <%= link_to "New Story", new_story_path, method: :get %>
+          </li>
           <% if user_signed_in? %>
             <li>
               <%= link_to "Log off", destroy_user_session_path, 'data-method' => :delete, id:"log-off" %>
             </li>
           <% else %>
             <li>
-              <%= link_to "person", new_user_session_path, class:"material-icons", id:"user" %>
+              <%= link_to "Log in", new_user_session_path, id:"user" %>
             </li>
           <% end %>
 
-          <li id:"new-story">
-            <%= link_to "New Story", new_story_path, method: :get %>
-          </li>
         </ul>
         </div>
     </div>

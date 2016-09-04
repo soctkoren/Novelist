@@ -103,6 +103,8 @@ $( document ).ready(function() {
       pagerType: 'short',
       responsive : false,
     });
+
+    $('.bx-pager').css("font-family", 'Quicksand');
   });
 
 });
