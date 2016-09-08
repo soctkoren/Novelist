@@ -26,7 +26,7 @@ $(document).ready(function() {
         var id = response.attributes.table.id;
         var query = '/800x600';
         var my_url = root_url + id + query;
-        // $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
+        $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
         // `<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`)
       }); 
   	})
