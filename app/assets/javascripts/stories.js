@@ -26,15 +26,7 @@ $( document ).ready(function() {
         var id = response.attributes.table.id;
         var query = '/800x600';
         var my_url = root_url + id + query;
-        //get all the cats
         $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
-        
-        // $(".images_divs_img").on("click", function(){
-        //   var selected_id = this.id;
-        //   $("#story_image_url").val(selected_id);
-        //   $(".image_container").css("background-image", `url(${this.src})`);
-        //   $("#pop-up-container").addClass("bounceOut");
-        // }); 
       }); 
   	})
   });
@@ -44,26 +36,18 @@ $( document ).ready(function() {
     $("#story_image_url").val(selected_id);
     $(".image_container").css("background-image", `url(${this.src})`);
  
-        $("#pop-up-container").addClass("bounceOut");
+      $("#pop-up-container").addClass("bounceOut");
 
-        setTimeout( function(){ 
-          $("#pop-up-container").removeClass("bounceOut");
-          $("#pop-up-container").removeClass("bounceIn");
-          $("#pop-up-container").addClass("hidden");
-        }  , 1000 );
-
-  
-  })
-
-
-
-  $(".story_form").on("submit", function(event){
-    // event.preventDefault();
+      setTimeout( function(){ 
+        $("#pop-up-container").removeClass("bounceOut");
+        $("#pop-up-container").removeClass("bounceIn");
+        $("#pop-up-container").addClass("hidden");
+      }  , 1000 );  
   });
 
-  $(".submits").on("click", function(){
-    $(".story_form").submit();
-  });
+  // $(".submits").on("click", function(event){
+  //   // $(".story_form").submit();
+  // });
 
   $("#cancel").on("click", function(event) {
     event.preventDefault();
@@ -109,48 +93,47 @@ $( document ).ready(function() {
     })
   });
 
-  // $(".description_right_show_container").on("click", "button", function(event) {
-  //   console.log("hello");
-  // });
 
   // favorite
-  $(".favorite").on("click", function(){
-    var input = $(this).attr("value");
-    input = JSON.parse(input);
-    console.log(input);
-    console.log("hit fav");
-    url = `/stories/1/favorite`;
-    $.ajax({
-      method: 'post',
-      url: url,
-      data: input
-    })
-    .done(function(response){
-        // var selector = "#vote" + response["segment_id"];
-        // $(selector).html(response["count"]).css("color", "#c34b3d");;
-      $(".favorite").addClass('unfavorite');
-      $(".favorite").removeClass('favorite');
-      console.log(this);
-    })
-  });
+  $("#favs").on("click", ".favorites", function() {
 
-  $(".unfavorite").on("click", function(){
-    var input = $(this).attr("value");
-    input = JSON.parse(input);
-    console.log(input);
-    console.log("hit unfav");
-    url = `/stories/1/unfavorite`;
-    $.ajax({
-      method: 'post',
-      url: url,
-      data: input
-    })
-    .done(function(response){
-        // var selector = "#vote" + response["segment_id"];
-        // $(selector).html(response["count"]).css("color", "#c34b3d");;
-      $(".unfavorite").addClass('favorite');
-      $(".unfavorite").removeClass('unfavorite'); 
-    })
+      var that = $(this)
+      var classes = that.attr('class');
+      var substring = "unfavorite";
+      
+      if (classes.indexOf(substring) !== -1) {
+        var input = that.attr("value");
+        input = JSON.parse(input);
+        url = `/stories/1/favorite`;
+        
+        var request = $.ajax({
+          method: 'post',
+          url: url,
+          data: input
+        })
+
+        request.done(function(response){
+          that.css("color", "#c34b3d");;
+          that.addClass('favorite');
+          that.removeClass('unfavorite');
+        });
+
+      } else {
+        var input = that.attr("value");
+        input = JSON.parse(input);
+        url = `/stories/1/unfavorite`;
+        var request = $.ajax({
+          method: 'post',
+          url: url,
+          data: input
+        })
+
+        request.done(function(response){
+            that.css("color", "#A9A9A9");;
+            that.addClass('unfavorite');
+            that.removeClass('favorite'); 
+        });
+      }
   });
 
 
@@ -193,6 +176,9 @@ $( document ).ready(function() {
       }
   }
 
+  function splitString(stringToSplit, separator) {
+    var arrayOfStrings = stringToSplit.split(separator);
+  }
 });
 
 

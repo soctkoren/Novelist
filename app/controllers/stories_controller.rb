@@ -160,7 +160,8 @@ class StoriesController < ApplicationController
 	def favorite
 		if request.xhr?
 			current_story = Story.find(params[:id])
-			current_story.liked_by current_user
+			reponse = current_story.liked_by current_user
+			reponse.to_s
 		end
 	end
 
@@ -168,7 +169,8 @@ class StoriesController < ApplicationController
 		if request.xhr?
 			puts params
 			current_story = Story.find(params[:id])
-			current_story.disliked_by current_user
+			reponse = current_story.disliked_by current_user
+			reponse.to_s
 		end
 	end
 

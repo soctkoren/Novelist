@@ -17,11 +17,11 @@
 						<button id="myBtn" class="material-icons">local_library</button>
 					</div>
 				</div>
-				<div class="description_right_show_container">
+				<div class="description_right_show_container" id=favs>
 					<% if @liked %>
-						<button type="submit" class="material-icons favorite" value="<%=@story.to_json%>">favorite</button>
+						<button type="submit" class="material-icons favorite favorites" value="<%=@story.to_json%>">favorite</button>
 					<% else  %>
-						<button type="submit" class="material-icons unfavorite" value="<%=@story.to_json%>">favorite</button>
+						<button type="submit" class="material-icons unfavorite favorites" value="<%=@story.to_json%>">favorite</button>
 					<% end %>
 					<div>
 						<!-- contributors and like button goes here -->
