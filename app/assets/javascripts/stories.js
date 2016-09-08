@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
   $("#img_icon").on("click", function(event){
     event.preventDefault();
