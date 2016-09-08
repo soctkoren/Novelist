@@ -26,7 +26,8 @@ $(document).ready(function() {
         var id = response.attributes.table.id;
         var query = '/800x600';
         var my_url = root_url + id + query;
-        $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
+        // $("#image-list").append(`<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`);
+        // `<li class="list"><div class="images_div"><img id="${id}", class="images_divs_img" src="${my_url}" /></div></li>`)
       }); 
   	})
   });
@@ -34,7 +35,7 @@ $(document).ready(function() {
   $("#image_pop_up_container").on("click", '.images_divs_img', function(){
     var selected_id = this.id;
     $("#story_image_url").val(selected_id);
-    $(".image_container").css("background-image", `url(${this.src})`);
+    $(".image_container").css("background-image", "url(" + this.src + ")");
  
       $("#pop-up-container").addClass("bounceOut");
 
@@ -58,7 +59,7 @@ $(document).ready(function() {
   $(".up").on("click", function(){
     var input = $(this).attr("value");
     input = JSON.parse(input);
-    url = `/segments/1/up`;
+    url = '/segments/1/up';
     $.ajax({
       method: 'post',
       url: url,
@@ -80,7 +81,7 @@ $(document).ready(function() {
   $(".down").on("click", function(){
     var input = $(this).attr("value");
     input = JSON.parse(input);
-    url = `/segments/1/down`;
+    url = '/segments/1/down';
     $.ajax({
       method: 'post',
       url: url,
@@ -104,7 +105,7 @@ $(document).ready(function() {
       if (classes.indexOf(substring) !== -1) {
         var input = that.attr("value");
         input = JSON.parse(input);
-        url = `/stories/1/favorite`;
+        url = '/stories/1/favorite';
         
         var request = $.ajax({
           method: 'post',
@@ -121,7 +122,7 @@ $(document).ready(function() {
       } else {
         var input = that.attr("value");
         input = JSON.parse(input);
-        url = `/stories/1/unfavorite`;
+        url = '/stories/1/unfavorite';
         var request = $.ajax({
           method: 'post',
           url: url,
