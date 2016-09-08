@@ -96,12 +96,16 @@ $( document ).ready(function() {
     })
   });
 
+  // $(".description_right_show_container").on("click", "button", function(event) {
+  //   console.log("hello");
+  // });
 
   // favorite
   $(".favorite").on("click", function(){
     var input = $(this).attr("value");
     input = JSON.parse(input);
     console.log(input);
+    console.log("hit fav");
     url = `/stories/1/favorite`;
     $.ajax({
       method: 'post',
@@ -117,12 +121,11 @@ $( document ).ready(function() {
     })
   });
 
-  // todo: make this into a toggle
-
   $(".unfavorite").on("click", function(){
     var input = $(this).attr("value");
     input = JSON.parse(input);
     console.log(input);
+    console.log("hit unfav");
     url = `/stories/1/unfavorite`;
     $.ajax({
       method: 'post',

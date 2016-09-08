@@ -19,9 +19,9 @@
 				</div>
 				<div class="description_right_show_container">
 					<% if @liked %>
-						<button type="submit" class="material-icons unfavorite" value="<%=@story.to_json%>">favorite</button>
-					<% else  %>
 						<button type="submit" class="material-icons favorite" value="<%=@story.to_json%>">favorite</button>
+					<% else  %>
+						<button type="submit" class="material-icons unfavorite" value="<%=@story.to_json%>">favorite</button>
 					<% end %>
 					<div>
 						<!-- contributors and like button goes here -->
