@@ -46,7 +46,7 @@ class StoriesController < ApplicationController
 			# logic for update
 
 			# Think about given the user access to the update time. 
-			update_timer_in_sec = 180
+			update_timer_in_sec = 1200
 
 			#convert from UTC to PST just for display
 			
